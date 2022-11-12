@@ -79,7 +79,7 @@ stages:
       displayName: Terraform apply 
       inputs:
         provider: 'azurerm'
-        command: 'apply --auto-approve'
+        command: 'apply'        
         workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/environments/test'
         environmentServiceNameAzureRM: '$(azureServiceConnectionId)'
 
@@ -89,7 +89,7 @@ stages:
       displayName: Terraform destroy
       inputs:
         provider: 'azurerm'
-        command: 'destroy --auto-approve'
+        command: 'destroy'
         workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/environments/test'
         environmentServiceNameAzureRM: '$(azureServiceConnectionId)'
 
