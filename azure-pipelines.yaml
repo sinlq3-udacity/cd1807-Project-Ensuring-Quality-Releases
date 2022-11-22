@@ -183,7 +183,7 @@ stages:
   - deployment: FakeRestAPI
     pool:
       vmImage: 'Ubuntu-18.04'      
-    environment: <environment name>   # ToDo
+    environment: 'udacity'   # ToDo
     strategy:
       runOnce:
         deploy:
@@ -191,19 +191,19 @@ stages:
           - task: AzureWebApp@1
             displayName: 'Deploy Azure Web App'
             inputs:
-              azureSubscription:      # ToDo
-              appName:                # ToDo
+              azureSubscription:      "UdacityDS - 97"
+              appName:               "sinlq3-udacity-project3-AppService" 
               appType: webApp
-              package: $(Pipeline.Workspace)/<artifact>/<archiveFile>       # ToDo: Use the published zip artifact. 
+              package: $(Pipeline.Workspace)/drop-apitests/$(Build.ArtifactStagingDirectory)/$(Build.BuildId)-pertests.zip       # ToDo: Use the published zip artifact. 
           #--------------------------------------------#    
           # Run JMeter test suite against the App Service
           # ToDo: Update the script below to install jmeter, unzip the jmeter test suite published zip artifact, and run the PerformanceTestSuite.  
           # ToDo: Generate the log file. 
-          - task: CmdLine@2
-            inputs:
-              script: |
-                                                                            # ToDo: Write your commands
-              workingDirectory: $(Pipeline.Workspace)/<artifact>            # ToDo: Use the artifact name from the task above
+          # - task: CmdLine@2
+          #   inputs:
+          #     script: |
+          #                                                                   # ToDo: Write your commands
+          #     workingDirectory: $(Pipeline.Workspace)/<artifact>            # ToDo: Use the artifact name from the task above
               
 #   #--------------------------------------------#  
 #   # Selenium | Functional UI Tests
