@@ -193,7 +193,7 @@ stages:
               azureSubscription:      "Azure"
               appName:               "sinlq3-udacity-project3-AppService" 
               appType: webApp
-              package: $(Build.ArtifactStagingDirectory)/$(Build.BuildId)-apitests.zip       # ToDo: Use the published zip artifact. 
+              package: $(Pipeline.Workspace)/drop-apitests/$(Build.BuildId)-apitests.zip # ToDo: Use the published zip artifact. 
           #--------------------------------------------#    
           # Run JMeter test suite against the App Service
           # ToDo: Update the script below to install jmeter, unzip the jmeter test suite published zip artifact, and run the PerformanceTestSuite.  
@@ -201,8 +201,8 @@ stages:
           - task: CmdLine@2
             inputs:
               script: wget https://dlcdn.apache.org//jmeter/binaries/apache-jmeter-5.5.zip &&
-                      Expand-Archive -Path apache-jmeter-5.5.zip -DestinationPath ./jmeter 
-                      
+                      Expand-Archive -Path apache-jmeter-5.5.zip -DestinationPath ./jmeter &&
+                      Expand-Archive -Path $(Build.ArtifactStagingDirectory)/$(Build.BuildId)-pertests.zip -DestinationPath ./test-suite
 
                                                                             # ToDo: Write your commands
               workingDirectory: $(Pipeline.Workspace)/drop-pertests            # ToDo: Use the artifact name from the task above
