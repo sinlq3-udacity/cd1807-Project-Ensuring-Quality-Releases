@@ -191,7 +191,7 @@ stages:
           - task: AzureWebApp@1
             displayName: 'Deploy Azure Web App'
             inputs:
-              azureSubscription:      "UdacityDS - 97"
+              azureSubscription:      "Udacity"
               appName:               "sinlq3-udacity-project3-AppService" 
               appType: webApp
               package: $(Pipeline.Workspace)/drop-apitests/$(Build.ArtifactStagingDirectory)/$(Build.BuildId)-pertests.zip       # ToDo: Use the published zip artifact. 
