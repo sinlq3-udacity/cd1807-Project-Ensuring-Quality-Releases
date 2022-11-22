@@ -193,16 +193,19 @@ stages:
               azureSubscription:      "Azure"
               appName:               "sinlq3-udacity-project3-AppService" 
               appType: webApp
-              package: $(Pipeline.Workspace)/drop-apitests/$(Build.ArtifactStagingDirectory)/$(Build.BuildId)-apitests.zip       # ToDo: Use the published zip artifact. 
+              package: $(Build.ArtifactStagingDirectory)/$(Build.BuildId)-apitests.zip       # ToDo: Use the published zip artifact. 
           #--------------------------------------------#    
           # Run JMeter test suite against the App Service
           # ToDo: Update the script below to install jmeter, unzip the jmeter test suite published zip artifact, and run the PerformanceTestSuite.  
           # ToDo: Generate the log file. 
-          # - task: CmdLine@2
-          #   inputs:
-          #     script: |
-          #                                                                   # ToDo: Write your commands
-          #     workingDirectory: $(Pipeline.Workspace)/<artifact>            # ToDo: Use the artifact name from the task above
+          - task: CmdLine@2
+            inputs:
+              script: wget https://dlcdn.apache.org//jmeter/binaries/apache-jmeter-5.5.zip &&
+                      Expand-Archive -Path apache-jmeter-5.5.zip -DestinationPath ./jmeter 
+                      
+
+                                                                            # ToDo: Write your commands
+              workingDirectory: $(Pipeline.Workspace)/drop-pertests            # ToDo: Use the artifact name from the task above
               
 #   #--------------------------------------------#  
 #   # Selenium | Functional UI Tests
