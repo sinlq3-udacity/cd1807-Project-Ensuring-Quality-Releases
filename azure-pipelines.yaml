@@ -198,7 +198,7 @@ stages:
           # Run JMeter test suite against the App Service
           # ToDo: Update the script below to install jmeter, unzip the jmeter test suite published zip artifact, and run the PerformanceTestSuite.  
           # ToDo: Generate the log file. 
-          - task: CmdLine@2
+          - task: PowerShell@2
             inputs:
               script: wget https://dlcdn.apache.org//jmeter/binaries/apache-jmeter-5.5.zip &&
                       Expand-Archive -Path apache-jmeter-5.5.zip -DestinationPath ./jmeter &&
