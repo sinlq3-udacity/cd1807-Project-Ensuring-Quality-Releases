@@ -202,8 +202,8 @@ stages:
             displayName: 'Execute JMeter'
             inputs:
               targetType: 'inline' 
-              script: wget https://dlcdn.apache.org//jmeter/binaries/apache-jmeter-5.5.zip &&
-                      Expand-Archive -Path apache-jmeter-5.5.zip -DestinationPath ./jmeter &&
+              script: wget https://dlcdn.apache.org//jmeter/binaries/apache-jmeter-5.5.zip |
+                      Expand-Archive -Path apache-jmeter-5.5.zip -DestinationPath ./jmeter |
                       Expand-Archive -Path $(Build.BuildId)-pertests.zip -DestinationPath ./test-suite
 
         #                                                                   # ToDo: Write your commands
