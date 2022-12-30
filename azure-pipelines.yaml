@@ -97,7 +97,7 @@ stages:
       displayName: Run Data Validation Tests
       continueOnError: true
       inputs:
-        script:          "newman run regression.json -e environment.json -d data.json -r junit --reporter-junit-export postman.xml"
+        script:          "newman run regression.json -e environment.json -d data.json -r junit --reporter-junit-export TEST-$(Build.BuildId).xml"
         workingDirectory: '$(System.DefaultWorkingDirectory)/automatedtesting/postman'    
     # Postman - Publish Results 
     # ToDo: Complete the task as explained here: https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/test/publish-test-results?view=azure-devops&tabs=trx%2Cyaml#yaml-snippet
