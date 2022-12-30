@@ -1,0 +1,39 @@
+{
+	"id": "f578dae4-3ad3-419d-8200-d479b27393fa",
+	"name": "udacity",
+	"values": [
+		{
+			"key": "host",
+			"value": "http://dummy.restapiexample.com",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "name",
+			"value": "name",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "age",
+			"value": "10",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "salary",
+			"value": "1000",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "id",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2022-12-30T05:41:42.358Z",
+	"_postman_exported_using": "Postman/10.6.7"
+}
