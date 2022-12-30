@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Regression" tests="12" time="4.122">
+  <testsuite name="Create Employee" id="512063c7-fd60-442b-8eb0-fe6ed941888b" timestamp="2022-12-30T06:36:36.169Z" tests="1" failures="5" errors="5" time="0.623">
+    <system-err><![CDATA[Iteration: 1
+
+---
+testScriptError: Unexpected token '<' at 1:1
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport cont
+^
+---
+Iteration: 2
+
+---
+testScriptError: Unexpected token '<' at 1:1
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport cont
+^
+---
+Iteration: 3
+
+---
+testScriptError: Unexpected token '<' at 1:1
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport cont
+^
+---
+Iteration: 4
+
+---
+testScriptError: Unexpected token '<' at 1:1
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport cont
+^
+---
+Iteration: 5
+
+---
+testScriptError: Unexpected token '<' at 1:1
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport cont
+^
+---
+]]></system-err>
+    <testcase name="Successful response" time="0.595" classname="Regression">
+      <failure type="AssertionFailure" message="expected '&lt;!doctype html>&lt;html lang=en>&lt;head>&lt;meta charset=utf-8>&lt;meta name=viewport content=&quot;width=device-width,initial-scale=1&quot;>&lt;title>Too Many Requests&lt;/title>&lt;link rel=dns-prefetch href=//fonts.gstatic.com>&lt;link href=&quot;https://fonts.googleapis.com/css?family=Nunito&quot; rel=stylesheet>&lt;style>html,body{background-color:#fff;color:#636b6f;font-family:nunito,sans-serif;font-weight:100;height:100vh;margin:0}.full-height{height:100vh}.flex-center{align-items:center;display:flex;justify-content:center}.position-ref{position:relative}.code{border-right:2px solid;font-size:26px;padding:0 15px;text-align:center}.message{font-size:18px;text-align:center}&lt;/style>&lt;/head>&lt;body>&lt;div class=&quot;flex-center position-ref full-height&quot;>&lt;div class=code>429&lt;/div>&lt;div class=message style=padding:10px>Too Many Requests&lt;/div>&lt;/div>&lt;/body>&lt;/html>' to include 'success'">
+        <![CDATA[Failed 5 times.]]>
+        <![CDATA[Collection JSON ID: 968b3a18-cc72-48a2-9b6b-e8619b4aaca8.]]>
+        <![CDATA[Collection name: Regression.]]>
+        <![CDATA[Request name: Create Employee.]]>
+        <![CDATA[Test description: Successful response.]]>
+        <![CDATA[Error message: expected '<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Too Many Requests</title><link rel=dns-prefetch href=//fonts.gstatic.com><link href="https://fonts.googleapis.com/css?family=Nunito" rel=stylesheet><style>html,body{background-color:#fff;color:#636b6f;font-family:nunito,sans-serif;font-weight:100;height:100vh;margin:0}.full-height{height:100vh}.flex-center{align-items:center;display:flex;justify-content:center}.position-ref{position:relative}.code{border-right:2px solid;font-size:26px;padding:0 15px;text-align:center}.message{font-size:18px;text-align:center}</style></head><body><div class="flex-center position-ref full-height"><div class=code>429</div><div class=message style=padding:10px>Too Many Requests</div></div></body></html>' to include 'success'.]]>
+        <![CDATA[Stacktrace: AssertionError: expected '<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Too Many Requests</title><link rel=dns-prefetch href=//fonts.gstatic.com><link href="https://fonts.googleapis.com/css?family=Nunito" rel=stylesheet><style>html,body{background-color:#fff;color:#636b6f;font-family:nunito,sans-serif;font-weight:100;height:100vh;margin:0}.full-height{height:100vh}.flex-center{align-items:center;display:flex;justify-content:center}.position-ref{position:relative}.code{border-right:2px solid;font-size:26px;padding:0 15px;text-align:center}.message{font-size:18px;text-align:center}</style></head><body><div class="flex-center position-ref full-height"><div class=code>429</div><div class=message style=padding:10px>Too Many Requests</div></div></body></html>' to include 'success'
+   at Object.eval sandbox-script.js:1:1).]]>
+      </failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="Get All Employees" id="9bb8622c-bcb8-4c99-8259-b18627f8aacb" timestamp="2022-12-30T06:36:36.169Z" tests="1" failures="0" errors="0" time="0.064">
+    <testcase name="Successful response" time="0.067" classname="Regression"/>
+  </testsuite>
+</testsuites>
