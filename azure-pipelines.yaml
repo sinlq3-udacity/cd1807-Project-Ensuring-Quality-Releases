@@ -178,58 +178,33 @@ stages:
       runOnce:
         deploy:
           steps:
-          - task: AzureWebApp@1
-            displayName: 'Deploy Azure Web App'
-            inputs:
-              azureSubscription:      "Azure"
-              appName:               "sinlq3-udacity-project3-AppService" 
-              appType: webApp
-              package: $(Pipeline.Workspace)/drop-apitests/$(Build.BuildId)-apitests.zip # ToDo: Use the published zip artifact. 
+          # - task: AzureWebApp@1
+          #   displayName: 'Deploy Azure Web App'
+          #   inputs:
+          #     azureSubscription:      "Azure"
+          #     appName:               "sinlq3-udacity-project3-AppService" 
+          #     appType: webApp
+          #     package: $(Pipeline.Workspace)/drop-apitests/$(Build.BuildId)-apitests.zip # ToDo: Use the published zip artifact. 
           #--------------------------------------------#    
           # Run JMeter test suite against the App Service
           # ToDo: Update the script below to install jmeter, unzip the jmeter test suite published zip artifact, and run the PerformanceTestSuite.  
           # ToDo: Generate the log file. 
+        #   - task: PowerShell@2
+        #     displayName: 'Execute JMeter'
+        #     inputs:
+        #       targetType: 'inline' 
+        #       script: wget -O apache-jmeter-5.5.zip https://dlcdn.apache.org//jmeter/binaries/apache-jmeter-5.5.zip ; Expand-Archive -Force -Path apache-jmeter-5.5.zip -DestinationPath ./jmeter ; Expand-Archive -Force -Path $(Build.BuildId)-pertests.zip -DestinationPath ./test-suite;.\jmeter\apache-jmeter-5.5\bin\jmeter -n -t .\test-suite\stress-test.jmx -l .\results.jtl;
+
+        # #                                                                   
+        #       workingDirectory: $(Pipeline.Workspace)/drop-pertests            
+
+
           - task: PowerShell@2
-            displayName: 'Execute JMeter'
+            displayName: 'Execute Selenium'
             inputs:
               targetType: 'inline' 
-              script: wget -O apache-jmeter-5.5.zip https://dlcdn.apache.org//jmeter/binaries/apache-jmeter-5.5.zip ; Expand-Archive -Force -Path apache-jmeter-5.5.zip -DestinationPath ./jmeter ; Expand-Archive -Force -Path $(Build.BuildId)-pertests.zip -DestinationPath ./test-suite;.\jmeter\apache-jmeter-5.5\bin\jmeter -n -t .\test-suite\stress-test.jmx -l .\results.jtl;
+              script: Expand-Archive -Force -Path $(Build.BuildId)-uitests.zip -DestinationPath ./uitests;py ./uitests/login.py;
 
-        #                                                                   # ToDo: Write your commands
-              workingDirectory: $(Pipeline.Workspace)/drop-pertests            # ToDo: Use the artifact name from the task above
-              
-#   #--------------------------------------------#  
-#   # Selenium | Functional UI Tests
-#   # ToDo: 
-#   - deployment: VMDeploy
-#     displayName: Selenium Tests
-#     environment:
-#       name:         # ToDo: Change/provide a name
-#       resourceType: VirtualMachine
-#       tags: selenium
-#     strategy:
-#       runOnce:
-#         deploy:
-#           steps:
-#           - download: current
-#             artifact: drop-ui-tests     # ToDo: Change/provide a name
-            
-#           - task: Bash@3
-#             inputs:
-#               targetType: 'inline'
-#               script: |           
-#                 # ToDo: Install Selenium, Chromium-browser & Chromedriver, if not already in the custom VM image. 
-#                 #! /bin/bash
-                
-#                 sudo apt-get upgrade -y
-#                 sudo apt-get install python3-pip -y
-#                 sudo apt-get install unzip -y
-#                 sudo apt-get install -y chromium-browser
-#                 pip3 install selenium
-                
-#                 #  ToDo: Add chromedriver executable to path
-#                 export PATH=$PATH:/path/to/chromedriver     
-                
-#                 # ToDo: Write commands for deploying the UI Test Suite (published zip artifact) to the linux VM and execute the Test Suite
-#                 # ToDo: Direct the output of the Selenium Test Suite to a log file
-                
+              workingDirectory: $(Pipeline.Workspace)/drop-uitests            
+          
+ 
