@@ -191,7 +191,7 @@ stages:
             displayName: 'Execute Selenium'
             inputs:
               targetType: 'inline' 
-              script: Expand-Archive -Force -Path $(Build.BuildId)-uitests.zip -DestinationPath ./uitests;py ./uitests/add-remove-from-cart.py > $(Build.BuildId)-uitests-log.txt;
+              script: Expand-Archive -Force -Path $(Build.BuildId)-uitests.zip -DestinationPath ./uitests;py ./uitests/add-remove-from-cart.py > $(Build.BuildId)-uitests-log.txt; Import-Csv ./$(Build.BuildId)-uitests-log.txt | Upload-AzMonitorLog -WorkspaceId c2cd1767-f3fb-4b5c-bfd5-38b560ec37f3 -WorkspaceKey cXeipNIt4gs8+S7R8S5Y0GcwIC5YMUMgvtH1xKKnCMsR4DnBdjmejOpXuPSpHjzaKBUB7/P+OY6lHFhdPfB79A== -LogTypeName selenium_CL
 
               workingDirectory: $(Pipeline.Workspace)/drop-uitests            
           

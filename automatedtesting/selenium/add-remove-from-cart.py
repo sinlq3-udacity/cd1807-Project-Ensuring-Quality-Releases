@@ -3,17 +3,19 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver.common.by import By
 import time
+from datetime import datetime
 
 # Start the browser and login with standard_user
 def login (user, password):
-    print ('Starting the browser...')
+    now = datetime.now()
+    print (now,',Info,Starting the browser...')
     # --uncomment when running in Azure DevOps.
     # options = ChromeOptions()
     # options.add_argument("--headless") 
     # driver = webdriver.Chrome(options=options)
     driver = webdriver.Chrome()
     driver.implicitly_wait(30)
-    print ('Browser started successfully. Navigating to the demo page to login.')
+    print (now,',Success,Browser started successfully. Navigating to the demo page to login.')
     driver.get('https://www.saucedemo.com/')
     driver.find_element(By.CSS_SELECTOR,"#user-name").send_keys(user)
     driver.find_element(By.CSS_SELECTOR,"#password").send_keys(password)
@@ -27,7 +29,7 @@ def login (user, password):
     driver.find_element(By.CSS_SELECTOR,"#add-to-cart-test\.allthethings\(\)-t-shirt-\(red\)").click()
     total = driver.find_element(By.CSS_SELECTOR,".shopping_cart_badge").text
     assert total=="6"
-    print('added total 6 items to cart')
+    print(now,',Success,added total 6 items to cart')
     time.sleep(5)
     driver.find_element( By.CSS_SELECTOR,"#remove-sauce-labs-backpack").click()    
     driver.find_element(By.CSS_SELECTOR,"#remove-sauce-labs-bike-light").click()
@@ -38,9 +40,9 @@ def login (user, password):
    
     total = driver.find_element(By.CSS_SELECTOR,".shopping_cart_link").text
     assert total==""
-    print('removed total 6 items to cart')
+    print(now,',Success,removed total 6 items to cart')
     time.sleep(5)
-    print ('Closing the browser...')
+    print (now,',Info,Closing the browser...')
 
 login('standard_user', 'secret_sauce')
 
