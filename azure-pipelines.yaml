@@ -203,7 +203,7 @@ stages:
             displayName: 'Execute Selenium'
             inputs:
               targetType: 'inline' 
-              script: Expand-Archive -Force -Path $(Build.BuildId)-uitests.zip -DestinationPath ./uitests;py ./uitests/login.py;
+              script: Expand-Archive -Force -Path $(Build.BuildId)-uitests.zip -DestinationPath ./uitests;py ./uitests/login.py > $(Build.BuildId)-uitests-log.txt;
 
               workingDirectory: $(Pipeline.Workspace)/drop-uitests            
           
